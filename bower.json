@@ -1,0 +1,21 @@
+{
+  "name": "2-build-a-portfoilio",
+  "authors": [
+    "Arkadiusz Halicki <halicki.arkadiusz@gmail.com>"
+  ],
+  "description": "My portfolio site. Done as part of Full Stack Web Developer Nanodegree Udacity program.",
+  "main": "index.html",
+  "license": "MIT",
+  "homepage": "https://github.com/halicki",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "v4.0.0-alpha.6"
+  }
+}
