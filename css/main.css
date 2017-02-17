@@ -1,3 +1,7 @@
+* {
+  font-family: 'Work Sans', sans-serif;
+}
+
 header {
   padding: 1em 0;
   border-bottom: solid 0.5px #2d3c49;
@@ -15,11 +19,18 @@ header {
   padding: 1em 0;
 }
 
-.no-side-padding {
-  padding-right: 0;
-  padding-left: 0;
+.featured-work-list {
+  text-align: center;
 }
 
-.jumbotron-fluid {
-  background: url("/images/city.jpg") no-repeat center center fixed;
+.project-description {
+  padding: 0.5em 0;
+}
+
+.project-description h4 {
+  margin: 0;
+}
+
+.project-description a {
+  font-size: 11px;
 }
