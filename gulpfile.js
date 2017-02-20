@@ -20,7 +20,9 @@ var paths = {
   scripts_dest: 'dist/js',
   styles_dest: 'dist/css',
   html_src: 'src/*.html',
-  html_dest: 'dist'
+  html_dest: 'dist',
+  images_src: ['src/images/*.jpg', 'src/images/*.png'],
+  images_dest: 'dist/images'
 };
 
 gulp.task('scrits_dependencies', function(){
@@ -54,13 +56,21 @@ gulp.task('html', function() {
     .pipe(gulp.dest(paths.html_dest))
 });
 
+gulp.task('images', function() {
+  gulp.src(paths.images_src)
+    .pipe(gulp.dest(paths.images_dest));
+})
+
+gulp.task('sources', ['prebuild', 'scripts', 'styles', 'html', 'images']);
+
 gulp.task('watch', function() {
   gulp.watch(paths.scripts_src, ['scripts']);
   gulp.watch(paths.styles_src, ['styles']);
   gulp.watch(paths.html_src, ['html']);
+  gulp.watch(paths.images_src, ['images']);
 });
  
-gulp.task('webserver', function() {
+gulp.task('webserver', ['watch'], function() {
   gulp.src('.')
     .pipe(webserver({
       livereload: true,
@@ -68,4 +78,4 @@ gulp.task('webserver', function() {
     }));
 });
 
-gulp.task('default', ['prebuild', 'scripts', 'styles', 'html', 'watch', 'webserver']);
+gulp.task('default', ['prebuild', 'sources', 'watch', 'webserver']);
