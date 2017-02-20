@@ -5,6 +5,14 @@ var gulp = require('gulp'),
   livereload = require('gulp-livereload'),
   webserver = require('gulp-webserver');
 
+var w3cjs = require('gulp-w3cjs');
+ 
+gulp.task('w3cjs', function () {
+    gulp.src('src/*.html')
+        .pipe(w3cjs())
+        .pipe(w3cjs.reporter());
+});
+
 var paths = {
   scrits_dependencies: [
     'bower_components/jquery/dist/jquery.slim.min.js',
@@ -21,7 +29,7 @@ var paths = {
   styles_dest: 'dist/css',
   html_src: 'src/*.html',
   html_dest: 'dist',
-  images_src: ['src/images/*.jpg', 'src/images/*.png'],
+  images_src: ['src/images/*.jpg', 'src/images/*.png', 'src/images/*.svg'],
   images_dest: 'dist/images'
 };
 

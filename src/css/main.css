@@ -7,15 +7,34 @@ header {
   border-bottom: solid 0.5px #2d3c49;
 }
 
+h1 {
+  font-weight: 200;
+  margin: 0;
+}
+
 #udacity-logo {
-  max-width: 5em;
+  max-width: 4em;
+}
+
+@media (max-width: 575px) {
+  h1 {
+    font-size: 1.85rem;
+  }
+
+  h5 {
+    font-size: 1rem;
+  }
+
+  #udacity-logo {
+   max-width: 3em;
+  }
 }
 
 .name {
   text-align: right;
 }
 
-.hero {
+.hero img {
   padding: 1em 0;
 }
 
