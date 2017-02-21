@@ -12,6 +12,10 @@ h1 {
   margin: 0;
 }
 
+h5 {
+  margin: 0;
+}
+
 #udacity-logo {
   max-width: 4em;
 }
@@ -34,7 +38,7 @@ h1 {
   text-align: right;
 }
 
-.hero img {
+#hero img {
   padding: 1em 0;
 }
 
@@ -50,6 +54,8 @@ h1 {
   margin: 0;
 }
 
-.project-description a {
-  font-size: 11px;
+@media(min-width: 768px) {
+  .project-description a {
+    font-size: 14px;
+  }
 }

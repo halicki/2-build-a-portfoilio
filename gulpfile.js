@@ -3,7 +3,12 @@ var gulp = require('gulp'),
   cleanCSS = require('gulp-clean-css'),
   concat = require('gulp-concat'),
   livereload = require('gulp-livereload'),
-  webserver = require('gulp-webserver');
+  webserver = require('gulp-webserver'),
+  bower = require('gulp-bower');
+ 
+gulp.task('bower', function() {
+  return bower();
+});
 
 var w3cjs = require('gulp-w3cjs');
  
@@ -33,13 +38,17 @@ var paths = {
   images_dest: 'dist/images'
 };
 
-gulp.task('scrits_dependencies', function(){
+gulp.task('bower', function() {
+  return bower();
+});
+
+gulp.task('scrits_dependencies', ['bower'], function(){
   gulp.src(paths.scrits_dependencies)
     .pipe(concat('dependencies.js'))
     .pipe(gulp.dest(paths.scripts_dest))
 });
 
-gulp.task('styles_dependencies', function() {
+gulp.task('styles_dependencies', ['bower'], function() {
   gulp.src(paths.styles_dependencies)
     .pipe(concat('dependencies.css'))
     .pipe(gulp.dest(paths.styles_dest))
@@ -51,27 +60,32 @@ gulp.task('scripts', function() {
   gulp.src(paths.scripts_src)
     .pipe(uglify())
     .pipe(gulp.dest(paths.scripts_dest))
+    .pipe(livereload());
 });
 
 gulp.task('styles', function() {
   gulp.src(paths.styles_src)
     .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(gulp.dest(paths.styles_dest))
+    .pipe(livereload());
 });
 
 gulp.task('html', function() {
   gulp.src(paths.html_src)
     .pipe(gulp.dest(paths.html_dest))
+    .pipe(livereload());
 });
 
 gulp.task('images', function() {
   gulp.src(paths.images_src)
-    .pipe(gulp.dest(paths.images_dest));
+    .pipe(gulp.dest(paths.images_dest))
+    .pipe(livereload());
 })
 
 gulp.task('sources', ['prebuild', 'scripts', 'styles', 'html', 'images']);
 
 gulp.task('watch', function() {
+  livereload.listen();
   gulp.watch(paths.scripts_src, ['scripts']);
   gulp.watch(paths.styles_src, ['styles']);
   gulp.watch(paths.html_src, ['html']);
@@ -81,7 +95,6 @@ gulp.task('watch', function() {
 gulp.task('webserver', ['watch'], function() {
   gulp.src('.')
     .pipe(webserver({
-      livereload: true,
       open: './dist/index.html'
     }));
 });
