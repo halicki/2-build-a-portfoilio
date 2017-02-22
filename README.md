@@ -1,21 +1,20 @@
-# Portfolio
+# My Portfolio
 This is portfolio site of me, Arkadiusz Halicki. It initial version is created as part of Udacity Full Stack Nanodegree program.
-
 
 # Installation
 To start this webpage you must do the following things:
-* **Install [node.js](https://nodejs.org/en/)**. Install it with package manager of your choice. For example in Ubuntu 16.04 you can call the following command:
 
-      sudo apt-get install nodejs
+**Install [node.js](https://nodejs.org/en/)**. Install it with package manager of your choice. For example in Ubuntu 16.04 you can call the following command:
+
+    sudo apt-get install nodejs
    
-* **Install [gulp-cli](https://www.npmjs.com/package/gulp-cli)**. Add `gulp` command to your system wide componenents by itsalling it with `npm`.
+**Install [gulp-cli](https://www.npmjs.com/package/gulp-cli)**. Add `gulp` command to your system wide componenents by itsalling it with `npm`.
 
-      npm install gulp-cli -g
-    
-* **Install all the internal dependencies, start a web server and open browser window**. You can do all this stuff just by running `gulp` command. Isn't it beautiful!
+    npm install gulp-cli -g
 
-      gulp
-    
+**Install all the internal dependencies, start a web server and open browser window**. You can do all this stuff just by running `gulp` command. Isn't it beautiful!
+
+    gulp
 
 # License
 The code of this site can be redistributed in accordance to MIT License.
